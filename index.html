@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEGO Snap Builder</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Drag, Drop, Snap</p>
+        <h1>LEGO Minifigure Builder</h1>
+        <p class="hero-copy">
+          Pull parts from the sorting bins and place them on the build board. Each piece will snap into
+          its correct position when you get close enough.
+        </p>
+      </div>
+      <div class="status-card">
+        <div class="status-row">
+          <span>Progress</span>
+          <strong id="progress-text">0 / 10 pieces placed</strong>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <p id="hint-text" class="hint-text">Suggested next piece: Head</p>
+        <button id="reset-button" class="secondary-button" type="button">Reset Build</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel reference-panel">
+        <div class="panel-heading">
+          <p class="panel-kicker">Target Model</p>
+          <h2>Reference</h2>
+        </div>
+        <img
+          class="reference-image"
+          src="./assets/legomanReference.jpg"
+          alt="Reference image of the LEGO-style minifigure to assemble"
+        />
+        <div class="reference-notes">
+          <p>Colors to match:</p>
+          <ul>
+            <li>Yellow head, neck, and hands</li>
+            <li>Red torso and arms</li>
+            <li>Blue hips and legs</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel build-panel">
+        <div class="panel-heading">
+          <p class="panel-kicker">Assembly Canvas</p>
+          <h2>Build Board</h2>
+        </div>
+        <div id="build-surface" class="build-surface" aria-label="LEGO build board">
+          <div class="build-backdrop"></div>
+          <div id="ghost-layer" class="surface-layer"></div>
+          <div id="placed-layer" class="surface-layer"></div>
+          <div id="celebration-banner" class="celebration-banner" aria-live="polite">
+            Model complete! Every piece snapped into place.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel bins-panel">
+        <div class="panel-heading">
+          <p class="panel-kicker">Sorting Bins</p>
+          <h2>Parts Tray</h2>
+        </div>
+        <p class="bins-copy">Grab a piece, hover over the board, and release near its matching guide.</p>
+        <div id="bin-grid" class="bin-grid" aria-label="Available LEGO pieces"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
